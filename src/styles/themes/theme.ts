@@ -10,12 +10,12 @@ export const theme = createTheme({
     h1: {
       fontFamily: '"Roboto", sans-serif',
       fontWeight: 700, // Жирный текст для заголовков
-      fontSize: "2.5rem", // Размер для заголовка h1
+      fontSize: "2rem", // Размер для заголовка h1
     },
     h2: {
       fontFamily: '"Roboto", sans-serif',
       fontWeight: 500,
-      fontSize: "2rem",
+      fontSize: "1rem", // Обычный текст пожирнее
     },
     body1: {
       fontFamily: '"Roboto", sans-serif',
@@ -40,6 +40,7 @@ export const theme = createTheme({
     secondary: {
       light: "#647091", // Голубино-серый на темно-сапфировом и сером фоне
       main: "#f57c00", // Акцентный оранжевый
+      dark: "#eef5ff", // Светло-голубой фон тарифа
     },
     background: {
       default: "#f4f6f8", // Фон страницы голубоватый

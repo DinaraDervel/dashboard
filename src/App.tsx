@@ -1,17 +1,44 @@
 import Grid from "@mui/material/Grid2";
-import { ThemeProvider } from "@mui/material";
+import { Button, Stack, ThemeProvider, Typography } from "@mui/material";
 import { theme } from "./styles/themes/theme";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import TopBar from "./Components/MainPage/TopBar/TopBar";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid container spacing={2} color="background.default">
-          <Grid size={4}>
+        <Grid container sx={{ bgcolor: "background.default" }}>
+          <Grid size={3}>
             <Sidebar />
           </Grid>
-          <Grid size={8}></Grid>
+          <Grid size={9}>
+            <TopBar user="Иванов И.И." userTarif="Тариф до 15.04.2024" />
+            <Stack direction="row" spacing={2} sx={{ mt: 8 }}>
+              <Typography
+                variant="h1"
+                align="left"
+                sx={{
+                  mt: 6,
+                  color: "primary",
+                }}
+              >
+                Остатки сформированы на 01.04.2023 г.
+              </Typography>
+              <Button
+                variant="contained"
+                startIcon={<LibraryBooksIcon />}
+                sx={{
+                  bgcolor: "primary.dark",
+                  color: "text.secondary",
+                  borderRadius: 4,
+                }}
+              >
+                Инструкция
+              </Button>
+            </Stack>
+          </Grid>
         </Grid>
       </ThemeProvider>
     </>

@@ -7,23 +7,28 @@ import {
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 type Props = {
+  icon: JSX.Element;
   name: string;
 };
 
-function AccordionItem({ name }: Props) {
+function AccordionItem({ icon, name }: Props) {
   return (
     <Accordion
       sx={{
-        width: 250,
+        width: "100%",
         marginBottom: 0.5,
         borderRadius: 2,
         bgcolor: "primary.light",
       }}
     >
       <AccordionSummary
+        sx={{ p: 1 }}
         expandIcon={<ArrowDropDownIcon sx={{ color: "secondary.light" }} />}
       >
-        <Typography color="text.secondary">{name}</Typography>
+        {icon}
+        <Typography variant="body1" color="text.secondary">
+          {name}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography color="text.secondary">
