@@ -4,6 +4,7 @@ import { theme } from "./styles/themes/theme";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import TopBar from "./Components/MainPage/TopBar/TopBar";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import SearchForm from "./Components/MainPage/SearchForm/SearchForm";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 Инструкция
               </Button>
             </Stack>
+            <SearchForm />
           </Grid>
         </Grid>
       </ThemeProvider>
