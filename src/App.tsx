@@ -5,6 +5,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import TopBar from "./Components/MainPage/TopBar/TopBar";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import SearchForm from "./Components/MainPage/SearchForm/SearchForm";
+import TableArea from "./Components/MainPage/TableArea/TableArea";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               </Button>
             </Stack>
             <SearchForm />
+            <TableArea />
           </Grid>
         </Grid>
       </ThemeProvider>

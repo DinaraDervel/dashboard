@@ -1,0 +1,119 @@
+[
+  {
+    "barcode": 2155304353332,
+    "item": "Одежда",
+    "companyArticle": "Платье",
+    "size": 60,
+    "available": 143,
+    "onTheWay": 46,
+    "total": 51
+  },
+  {
+    "barcode": 2397590842645,
+    "item": "Одежда",
+    "companyArticle": "Пиджак",
+    "size": 60,
+    "available": 58,
+    "onTheWay": 48,
+    "total": 40
+  },
+  {
+    "barcode": 2054402519503,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 59,
+    "available": 152,
+    "onTheWay": 53,
+    "total": 52
+  },
+  {
+    "barcode": 2931623677224,
+    "item": "Одежда",
+    "companyArticle": "Брюки 1",
+    "size": 55,
+    "available": 160,
+    "onTheWay": 50,
+    "total": 50
+  },
+  {
+    "barcode": 2632298750962,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 51,
+    "available": 189,
+    "onTheWay": 42,
+    "total": 51
+  },
+  {
+    "barcode": 2930302679121,
+    "item": "Одежда",
+    "companyArticle": "Платье",
+    "size": 55,
+    "available": 107,
+    "onTheWay": 41,
+    "total": 44
+  },
+  {
+    "barcode": 2389135991870,
+    "item": "Одежда",
+    "companyArticle": "Платье",
+    "size": 49,
+    "available": 99,
+    "onTheWay": 56,
+    "total": 60
+  },
+  {
+    "barcode": 2366931255825,
+    "item": "Одежда",
+    "companyArticle": "Платье",
+    "size": 60,
+    "available": 34,
+    "onTheWay": 60,
+    "total": 44
+  },
+  {
+    "barcode": 2272359790342,
+    "item": "Одежда",
+    "companyArticle": "Платье",
+    "size": 51,
+    "available": 109,
+    "onTheWay": 53,
+    "total": 50
+  },
+  {
+    "barcode": 2801197190665,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 42,
+    "available": 6,
+    "onTheWay": 50,
+    "total": 43
+  },
+  {
+    "barcode": 2465356929731,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 51,
+    "available": 163,
+    "onTheWay": 52,
+    "total": 48
+  },
+  {
+    "barcode": 2294098108195,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 56,
+    "available": 156,
+    "onTheWay": 53,
+    "total": 47
+  },
+  {
+    "barcode": 2604749956000,
+    "item": "Одежда",
+    "companyArticle": "Брюки",
+    "size": 57,
+    "available": 151,
+    "onTheWay": 52,
+    "total": 56
+  }
+]

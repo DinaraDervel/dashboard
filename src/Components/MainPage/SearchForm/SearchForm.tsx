@@ -1,6 +1,7 @@
-import { Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import SearchItem from "./SearchItem/SearchItem";
 import SelectItem from "./SelectItem/SelectItem";
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
 
 const SearchForm = () => {
   return (
@@ -11,6 +12,8 @@ const SearchForm = () => {
         <SearchItem name="Размер" value="44" />
         <SelectItem name="Категория" value="Джинсы" />
       </Stack>
+      <Button>Сформировать</Button>
+      <Button startIcon={<UnarchiveIcon />}>Экспорт</Button>
     </div>
   );
 };
