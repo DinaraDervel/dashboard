@@ -30,7 +30,7 @@ const SearchItem = ({ name, value }: Props) => {
         value={value}
         sx={{
           height: "100%",
-          // width: "fit-content",
+          width: "fit-content",
           borderRadius: 5,
           bgcolor: "background.default",
           color: "#cdcfd2",
