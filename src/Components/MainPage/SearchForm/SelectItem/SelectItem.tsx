@@ -8,16 +8,13 @@ type Props = {
 const SelectItem = ({ name, value }: Props) => {
   return (
     <Box
-      component="form"
       sx={{
         borderRadius: 5,
         bgcolor: "background.paper",
         p: 1,
       }}
-      noValidate
-      autoComplete="off"
     >
-      <Typography variant="body1" sx={{ color: "#cdcfd2", p: 1 }}>
+      <Typography variant="body1" sx={{ color: "#cdcfd2", pl: 1 }}>
         {name}
       </Typography>
       <Select

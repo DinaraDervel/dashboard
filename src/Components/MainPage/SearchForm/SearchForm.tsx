@@ -33,8 +33,13 @@ const SearchForm = observer(() => {
   };
 
   return (
-    <div>
-      <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
+    <>
+      <Stack
+        component="form"
+        direction="row"
+        spacing={1}
+        sx={{ width: "70%", mt: 2 }}
+      >
         <SearchItem name="Баркод" value="6456465464645" />
         <SearchItem name="Артикул" value="ДжиСимМом0878" />
         <SearchItem name="Размер" value="44" />
@@ -47,7 +52,7 @@ const SearchForm = observer(() => {
       >
         Экспорт
       </Button>
-    </div>
+    </>
   );
 });
 

@@ -8,7 +8,6 @@ type Props = {
 const SearchItem = ({ name, value }: Props) => {
   return (
     <Box
-      component="form"
       sx={{
         borderRadius: 5,
         display: "flex",
@@ -18,8 +17,6 @@ const SearchItem = ({ name, value }: Props) => {
         bgcolor: "background.paper",
         p: 1,
       }}
-      noValidate
-      autoComplete="off"
     >
       <Typography variant="body1" sx={{ color: "text.primary" }}>
         {name}
@@ -30,7 +27,6 @@ const SearchItem = ({ name, value }: Props) => {
         value={value}
         sx={{
           height: "100%",
-          width: "fit-content",
           borderRadius: 5,
           bgcolor: "background.default",
           color: "#cdcfd2",
