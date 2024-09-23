@@ -3,20 +3,29 @@ import { observer } from "mobx-react";
 import { useStores } from "../../../../use-store";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 function ProductRow({ product }: { product: Product }) {
   const { barcode, item, companyArticle, size, available, onTheWay, total } =
     product;
   return (
-    <tr>
-      <td>{barcode}</td>
-      <td>{item}</td>
-      <td>{companyArticle}</td>
-      <td>{size}</td>
-      <td>{available}</td>
-      <td>{onTheWay}</td>
-      <td>{total}</td>
-    </tr>
+    <TableRow>
+      <TableCell>{barcode}</TableCell>
+      <TableCell>{item}</TableCell>
+      <TableCell>{companyArticle}</TableCell>
+      <TableCell>{size}</TableCell>
+      <TableCell>{available}</TableCell>
+      <TableCell>{onTheWay}</TableCell>
+      <TableCell>{total}</TableCell>
+    </TableRow>
   );
 }
 
@@ -27,6 +36,7 @@ const ProductTable = observer(() => {
     <ProductRow product={el} key={el.barcode} />
   ));
 
+  // Функция сортировки по столбцу
   function sort(field: keyof Product) {
     productStore.rowsOfProducts.sort((a, b) => {
       if (a[field] < b[field]) return -1;
@@ -35,45 +45,62 @@ const ProductTable = observer(() => {
     });
   }
 
+  // Функция для вычисления Итого по столбцу field
+  function total(field: keyof Product) {
+    return productStore.rowsOfProducts
+      .map((el) => el[field])
+      .reduce((sum, i) => sum + i, 0);
+  }
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Баркод
-            <ArrowDropDownIcon
-              color="primary"
-              onClick={() => sort("barcode")}
-            />
-          </th>
-          <th>
-            Предмет
-            <ArrowDropDownIcon onClick={() => sort("item")} />
-          </th>
-          <th>
-            Артикул поставщика
-            <ArrowDropDownIcon onClick={() => sort("companyArticle")} />
-          </th>
-          <th>
-            Размер
-            <ArrowDropDownIcon onClick={() => sort("size")} />
-          </th>
-          <th>
-            Доступно к заказу
-            <ArrowDropDownIcon onClick={() => sort("available")} />
-          </th>
-          <th>
-            Товары в пути
-            <ArrowDropDownIcon onClick={() => sort("onTheWay")} />
-          </th>
-          <th>
-            Итого кол-во товаров
-            <ArrowDropDownIcon onClick={() => sort("total")} />
-          </th>
-        </tr>
-      </thead>
-      <tbody>{rowsOfProductsRendered}</tbody>
-    </table>
+    <Paper sx={{ width: "100%", overflow: "hidden", borderRadius: 5, mt: 3 }}>
+      <TableContainer sx={{ maxHeight: 440 }}>
+        <Table stickyHeader>
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                Баркод
+                <ArrowDropDownIcon
+                  color="primary"
+                  onClick={() => sort("barcode")}
+                />
+              </TableCell>
+              <TableCell>
+                Предмет
+                <ArrowDropDownIcon onClick={() => sort("item")} />
+              </TableCell>
+              <TableCell>
+                Артикул поставщика
+                <ArrowDropDownIcon onClick={() => sort("companyArticle")} />
+              </TableCell>
+              <TableCell>
+                Размер
+                <ArrowDropDownIcon onClick={() => sort("size")} />
+              </TableCell>
+              <TableCell>
+                Доступно к заказу
+                <ArrowDropDownIcon onClick={() => sort("available")} />
+              </TableCell>
+              <TableCell>
+                Товары в пути
+                <ArrowDropDownIcon onClick={() => sort("onTheWay")} />
+              </TableCell>
+              <TableCell>
+                Итого кол-во товаров
+                <ArrowDropDownIcon onClick={() => sort("total")} />
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{rowsOfProductsRendered}</TableBody>
+          <TableRow>
+            <TableCell colSpan={4}>Итого:</TableCell>
+            <TableCell>{total("available")}</TableCell>
+            <TableCell>{total("onTheWay")}</TableCell>
+            <TableCell>{total("total")}</TableCell>
+          </TableRow>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 });
 
