@@ -3,8 +3,16 @@ import ProductTable from "./ProductTable/ProductTable";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import CloseIcon from "@mui/icons-material/Close";
+import { observer } from "mobx-react";
+import { useStores } from "../../../use-store";
 
-const TableArea = () => {
+const TableArea = observer(() => {
+  const { productStore } = useStores();
+
+  const loadTable = () => {
+    if (!productStore.isLoading) productStore.load();
+  };
+
   return (
     <div>
       <Divider sx={{ width: "80%" }}></Divider>
@@ -16,7 +24,12 @@ const TableArea = () => {
         }}
       >
         <Stack direction="row" gap={2}>
-          <Button startIcon={<DriveFolderUploadIcon />}>
+          <Button
+            startIcon={<DriveFolderUploadIcon />}
+            onClick={() => {
+              loadTable();
+            }}
+          >
             Загрузить данные из cvs
           </Button>
           <Button startIcon={<CreateNewFolderIcon />}>Изменить данные</Button>
@@ -30,6 +43,6 @@ const TableArea = () => {
       <ProductTable />
     </div>
   );
-};
+});
 
 export default TableArea;

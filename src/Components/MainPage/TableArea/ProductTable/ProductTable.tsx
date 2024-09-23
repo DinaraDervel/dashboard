@@ -1,7 +1,7 @@
 import { Product } from "../../../../store/ProductStore";
 import { observer } from "mobx-react";
 import { useStores } from "../../../../use-store";
-import { useEffect } from "react";
+
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function ProductRow({ product }: { product: Product }) {
@@ -22,11 +22,6 @@ function ProductRow({ product }: { product: Product }) {
 
 const ProductTable = observer(() => {
   const { productStore } = useStores();
-
-  useEffect(() => {
-    if (!productStore.isLoading) productStore.load();
-    // eslint-disable-next-line
-  }, []);
 
   const rowsOfProductsRendered = productStore.rowsOfProducts.map((el) => (
     <ProductRow product={el} key={el.barcode} />
