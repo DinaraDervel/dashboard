@@ -12,29 +12,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-
-function ProductRow({ product }: { product: Product }) {
-  const { barcode, item, companyArticle, size, available, onTheWay, total } =
-    product;
-  return (
-    <TableRow>
-      <TableCell>{barcode}</TableCell>
-      <TableCell>{item}</TableCell>
-      <TableCell>{companyArticle}</TableCell>
-      <TableCell>{size}</TableCell>
-      <TableCell>{available}</TableCell>
-      <TableCell>{onTheWay}</TableCell>
-      <TableCell>{total}</TableCell>
-    </TableRow>
-  );
-}
+import EditableTableCell from "./EditableTableCell/EditableTableCell";
 
 const ProductTable = observer(() => {
   const { productStore } = useStores();
-
-  const rowsOfProductsRendered = productStore.rowsOfProducts.map((el) => (
-    <ProductRow product={el} key={el.barcode} />
-  ));
 
   // Функция сортировки по столбцу
   function sort(field: keyof Product) {
@@ -53,7 +34,7 @@ const ProductTable = observer(() => {
   }
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden", borderRadius: 5, mt: 3 }}>
+    <Paper sx={{ width: "100%", overflow: "auto", borderRadius: 5, mt: 3 }}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader>
           <TableHead>
@@ -91,7 +72,47 @@ const ProductTable = observer(() => {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>{rowsOfProductsRendered}</TableBody>
+          <TableBody>
+            {productStore.products.map((product: Product) => (
+              <TableRow key={product.barcode}>
+                <TableCell>{product.barcode}</TableCell>
+                <EditableTableCell
+                  product={product}
+                  field="item"
+                  onSave={productStore.update}
+                />
+                <EditableTableCell
+                  product={product}
+                  field="companyArticle"
+                  onSave={productStore.update}
+                />
+                <EditableTableCell
+                  product={product}
+                  field="size"
+                  onSave={productStore.update}
+                  isNumeric
+                />
+                <EditableTableCell
+                  product={product}
+                  field="available"
+                  onSave={productStore.update}
+                  isNumeric
+                />
+                <EditableTableCell
+                  product={product}
+                  field="onTheWay"
+                  onSave={productStore.update}
+                  isNumeric
+                />
+                <EditableTableCell
+                  product={product}
+                  field="total"
+                  onSave={productStore.update}
+                  isNumeric
+                />
+              </TableRow>
+            ))}
+          </TableBody>
           <TableRow>
             <TableCell colSpan={4}>Итого:</TableCell>
             <TableCell>{total("available")}</TableCell>

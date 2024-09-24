@@ -14,7 +14,7 @@ export type Product = {
 export class ProductStore {
   products: Array<Product> = [];
   rowsOfProducts: Array<Product> = [];
-  categories: Set<string> = new Set([]);
+  //categories: Set<string> = new Set([]);
   // selectedBrand: string | undefined = undefined;
   isLoading: boolean = false;
   error: Error | null = null;
@@ -43,6 +43,12 @@ export class ProductStore {
       })
       .finally(() => (this.isLoading = false));
   }
+
+  update = (updatedProduct: Product) => {
+    this.products = this.products.map((product) =>
+      product.barcode === updatedProduct.barcode ? updatedProduct : product
+    );
+  };
 
   // getBrands() {
   //   this.brands = new Set(this.products.map((product) => product.brand));
