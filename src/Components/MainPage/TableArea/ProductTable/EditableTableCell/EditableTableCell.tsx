@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Product } from "../../../../../store/ProductStore";
 import { Button, TableCell, TextField } from "@mui/material";
+import { styled } from "@mui/system";
 
 type EditableTableCellProps = {
   product: Product;
@@ -35,8 +36,12 @@ function EditableTableCell({
     onSave({ ...product, [field]: isNumeric ? Number(value) : value });
   };
 
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    border: `2px solid ${theme.palette.common.white}`, // Добавление границ для ячеек
+  }));
+
   return (
-    <TableCell>
+    <StyledTableCell>
       {isEditing ? (
         <>
           <TextField
@@ -52,7 +57,7 @@ function EditableTableCell({
       ) : (
         <span onDoubleClick={handleEditClick}>{product[field]}</span>
       )}
-    </TableCell>
+    </StyledTableCell>
   );
 }
 

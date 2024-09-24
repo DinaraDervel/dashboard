@@ -1,7 +1,7 @@
 import { Product } from "../../../../store/ProductStore";
 import { observer } from "mobx-react";
 import { useStores } from "../../../../use-store";
-
+import { styled } from "@mui/system";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   Paper,
@@ -33,6 +33,20 @@ const ProductTable = observer(() => {
       .reduce((sum, i) => sum + i, 0);
   }
 
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover, // Стилизация нечетных строк
+    },
+  }));
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    border: `2px solid ${theme.palette.common.white}`, // Добавление границ для ячеек
+  }));
+
+  const StyledHeaderTableCell = styled(TableCell)(({ theme }) => ({
+    backgroundColor: `${theme.palette.common.white}`,
+  }));
+
   return (
     <TableContainer
       component={Paper}
@@ -49,43 +63,43 @@ const ProductTable = observer(() => {
       <Table stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell>
+            <StyledHeaderTableCell>
               Баркод
               <ArrowDropDownIcon
                 color="primary"
                 onClick={() => sort("barcode")}
               />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Предмет
               <ArrowDropDownIcon onClick={() => sort("item")} />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Артикул поставщика
               <ArrowDropDownIcon onClick={() => sort("companyArticle")} />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Размер
               <ArrowDropDownIcon onClick={() => sort("size")} />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Доступно к заказу
               <ArrowDropDownIcon onClick={() => sort("available")} />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Товары в пути
               <ArrowDropDownIcon onClick={() => sort("onTheWay")} />
-            </TableCell>
-            <TableCell>
+            </StyledHeaderTableCell>
+            <StyledHeaderTableCell>
               Итого кол-во товаров
               <ArrowDropDownIcon onClick={() => sort("total")} />
-            </TableCell>
+            </StyledHeaderTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {productStore.products.map((product: Product) => (
-            <TableRow key={product.barcode}>
-              <TableCell>{product.barcode}</TableCell>
+            <StyledTableRow key={product.barcode}>
+              <StyledTableCell>{product.barcode}</StyledTableCell>
               <EditableTableCell
                 product={product}
                 field="item"
@@ -120,14 +134,14 @@ const ProductTable = observer(() => {
                 onSave={productStore.update}
                 isNumeric
               />
-            </TableRow>
+            </StyledTableRow>
           ))}
         </TableBody>
         <TableRow>
-          <TableCell colSpan={4}>Итого:</TableCell>
-          <TableCell>{total("available")}</TableCell>
-          <TableCell>{total("onTheWay")}</TableCell>
-          <TableCell>{total("total")}</TableCell>
+          <StyledTableCell colSpan={4}>Итого:</StyledTableCell>
+          <StyledTableCell>{total("available")}</StyledTableCell>
+          <StyledTableCell>{total("onTheWay")}</StyledTableCell>
+          <StyledTableCell>{total("total")}</StyledTableCell>
         </TableRow>
       </Table>
     </TableContainer>
