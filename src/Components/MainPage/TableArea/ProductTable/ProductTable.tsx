@@ -58,9 +58,10 @@ const ProductTable = observer(() => {
         borderRadius: 5,
         mt: 3,
         whiteSpace: "nowrap",
+        transform: "rotateX(180deg)",
       }}
     >
-      <Table stickyHeader>
+      <Table sx={{ transform: "rotateX(180deg)" }}>
         <TableHead>
           <TableRow>
             <StyledHeaderTableCell>
