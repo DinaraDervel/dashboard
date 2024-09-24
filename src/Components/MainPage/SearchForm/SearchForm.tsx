@@ -45,10 +45,28 @@ const SearchForm = observer(() => {
         <SearchItem name="Размер" value="44" />
         <SelectItem name="Категория" value="Джинсы" />
       </Stack>
-      <Button>Сформировать</Button>
       <Button
+        variant="contained"
+        sx={{
+          bgcolor: "primary.main",
+          color: "common.white",
+          borderRadius: 4,
+          mt: 1,
+          mr: 1,
+        }}
+      >
+        Сформировать
+      </Button>
+      <Button
+        variant="contained"
         startIcon={<UnarchiveIcon />}
         onClick={() => saveFileAs(JSON.stringify(productStore.products))}
+        sx={{
+          bgcolor: "primary.dark",
+          color: "text.secondary",
+          borderRadius: 4,
+          mt: 1,
+        }}
       >
         Экспорт
       </Button>

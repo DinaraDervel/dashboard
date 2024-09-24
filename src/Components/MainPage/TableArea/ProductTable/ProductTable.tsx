@@ -73,27 +73,39 @@ const ProductTable = observer(() => {
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Предмет
-              <ArrowDropDownIcon onClick={() => sort("item")} />
+              <ArrowDropDownIcon color="primary" onClick={() => sort("item")} />
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Артикул поставщика
-              <ArrowDropDownIcon onClick={() => sort("companyArticle")} />
+              <ArrowDropDownIcon
+                color="primary"
+                onClick={() => sort("companyArticle")}
+              />
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Размер
-              <ArrowDropDownIcon onClick={() => sort("size")} />
+              <ArrowDropDownIcon color="primary" onClick={() => sort("size")} />
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Доступно к заказу
-              <ArrowDropDownIcon onClick={() => sort("available")} />
+              <ArrowDropDownIcon
+                color="primary"
+                onClick={() => sort("available")}
+              />
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Товары в пути
-              <ArrowDropDownIcon onClick={() => sort("onTheWay")} />
+              <ArrowDropDownIcon
+                color="primary"
+                onClick={() => sort("onTheWay")}
+              />
             </StyledHeaderTableCell>
             <StyledHeaderTableCell>
               Итого кол-во товаров
-              <ArrowDropDownIcon onClick={() => sort("total")} />
+              <ArrowDropDownIcon
+                color="primary"
+                onClick={() => sort("total")}
+              />
             </StyledHeaderTableCell>
           </TableRow>
         </TableHead>
@@ -138,7 +150,7 @@ const ProductTable = observer(() => {
             </StyledTableRow>
           ))}
         </TableBody>
-        <TableRow>
+        <TableRow sx={{ bgcolor: "action.hover" }}>
           <StyledTableCell colSpan={4}>Итого:</StyledTableCell>
           <StyledTableCell>{total("available")}</StyledTableCell>
           <StyledTableCell>{total("onTheWay")}</StyledTableCell>
