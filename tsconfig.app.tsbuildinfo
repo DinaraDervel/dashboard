@@ -1,7 +1,7 @@
 {
   "root": [
     "./src/app.tsx",
-    "./dashboard/src/main.tsx",
+    "./src/main.tsx",
     "./src/use-store.tsx",
     "./src/vite-env.d.ts",
     "./src/components/mainpage/searchform/searchform.tsx",
