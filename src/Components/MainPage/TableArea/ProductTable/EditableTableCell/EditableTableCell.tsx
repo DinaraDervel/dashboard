@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Product } from "../../../../../store/ProductStore";
-import { Button, TableCell, TextField } from "@mui/material";
+import { TableCell, TextField } from "@mui/material";
 import { styled } from "@mui/system";
 
 type EditableTableCellProps = {
@@ -47,12 +47,13 @@ function EditableTableCell({
           <TextField
             value={value}
             onChange={(e) => setValue(e.target.value)}
+            onBlur={handleSaveClick}
             size="small"
             error={error}
             helperText={error ? "Введите корректное число" : ""}
             type={isNumeric ? "number" : "text"}
+            autoFocus
           />
-          <Button onClick={handleSaveClick}>Сохранить</Button>
         </>
       ) : (
         <span onDoubleClick={handleEditClick}>{product[field]}</span>
