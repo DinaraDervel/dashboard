@@ -19,7 +19,7 @@ const ProductTable = observer(() => {
 
   // Функция сортировки по столбцу
   function sort(field: keyof Product) {
-    productStore.rowsOfProducts.sort((a, b) => {
+    productStore.products.sort((a, b) => {
       if (a[field] < b[field]) return -1;
       else if (a[field] > b[field]) return 1;
       return 0;
@@ -27,11 +27,11 @@ const ProductTable = observer(() => {
   }
 
   // Функция для вычисления Итого по столбцу field
-  function total(field: keyof Product) {
-    return productStore.rowsOfProducts
+  const total = (field: keyof Product) => {
+    return productStore.products
       .map((el) => el[field])
       .reduce((sum, i) => sum + i, 0);
-  }
+  };
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
