@@ -29,7 +29,7 @@ const ProductTable = observer(() => {
   // Функция для вычисления Итого по столбцу field
   const total = (field: keyof Product) => {
     return productStore.products
-      .map((el) => el[field])
+      .map((el) => Number(el[field]))
       .reduce((sum, i) => sum + i, 0);
   };
 

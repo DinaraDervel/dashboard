@@ -1,5 +1,5 @@
 export const getAllProducts = () => {
-  return fetch("../../generatedData.json").then((response) => {
+  return fetch("/dashboard/generatedData.json").then((response) => {
     return response.json();
   });
 };
