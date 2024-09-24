@@ -1,4 +1,13 @@
-import { Box, Button, Divider, Link, List, ListItem } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Link,
+  List,
+  ListItem,
+  Stack,
+  Typography,
+} from "@mui/material";
 import ArticleIcon from "@mui/icons-material/Article";
 import SettingsIcon from "@mui/icons-material/Settings";
 import EditNoteIcon from "@mui/icons-material/EditNote";
@@ -7,6 +16,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import AccordionItem from "./AccordionItem/AccordionItem";
 import Close from "@mui/icons-material/Close";
 import Logo from "./Logo/Logo";
+import Contact from "./Contact/Contact";
 
 function Sidebar() {
   return (
@@ -80,6 +90,22 @@ function Sidebar() {
           bgcolor: "primary.dark",
         }}
       >
+        <Typography variant="body1" sx={{ color: "text.secondary", m: 2 }}>
+          Техническая поддержка
+        </Typography>
+        <Stack
+          spacing={{ xs: 1, sm: 2 }}
+          direction="row"
+          useFlexGap
+          sx={{ flexWrap: "wrap", m: 2 }}
+        >
+          <Contact fieldName="Номер поддержки" fieldValue="8 (999) 999 99 99" />
+          <Contact fieldName="Почта поддержки" fieldValue="pf1@werthesest.ru" />
+          <Contact
+            fieldName="Часы работы"
+            fieldValue="Пн - Пт с 9:00 до 19:00 мск"
+          />
+        </Stack>
         <List>
           <ListItem>
             <Link
@@ -139,18 +165,19 @@ function Sidebar() {
           </ListItem>
         </List>
       </Box>
-      <Button
-        variant="contained"
-        startIcon={<ChatIcon />}
-        sx={{
-          width: "100%",
-          margin: 2,
-          padding: 2,
-          borderRadius: 4,
-        }}
-      >
-        Связаться с нами
-      </Button>
+      <Box sx={{ margin: 2 }}>
+        <Button
+          variant="contained"
+          startIcon={<ChatIcon />}
+          sx={{
+            width: "100%",
+            padding: 2,
+            borderRadius: 4,
+          }}
+        >
+          Связаться с нами
+        </Button>
+      </Box>
     </Box>
   );
 }

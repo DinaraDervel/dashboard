@@ -15,7 +15,7 @@ const TableArea = observer(() => {
 
   return (
     <div>
-      <Divider sx={{ width: "80%" }}></Divider>
+      <Divider sx={{ width: "80%", mt: 2 }}></Divider>
       <Stack
         direction="row"
         sx={{
@@ -29,14 +29,22 @@ const TableArea = observer(() => {
             onClick={() => {
               loadTable();
             }}
+            sx={{ color: "primary.light" }}
           >
             Загрузить данные из cvs
           </Button>
-          <Button startIcon={<CreateNewFolderIcon />}>Изменить данные</Button>
+          <Button
+            startIcon={<CreateNewFolderIcon />}
+            sx={{ color: "primary.light" }}
+          >
+            Изменить данные
+          </Button>
         </Stack>
         <Stack direction="row" gap={2}>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <Button endIcon={<CloseIcon />}>Очистить</Button>
+          <Button endIcon={<CloseIcon />} sx={{ color: "primary.light" }}>
+            Очистить
+          </Button>
         </Stack>
       </Stack>
       <Divider sx={{ width: "80%" }}></Divider>
