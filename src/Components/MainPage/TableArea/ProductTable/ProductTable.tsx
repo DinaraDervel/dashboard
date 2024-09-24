@@ -149,13 +149,13 @@ const ProductTable = observer(() => {
               />
             </StyledTableRow>
           ))}
+          <TableRow sx={{ bgcolor: "action.hover" }}>
+            <StyledTableCell colSpan={4}>Итого:</StyledTableCell>
+            <StyledTableCell>{total("available")}</StyledTableCell>
+            <StyledTableCell>{total("onTheWay")}</StyledTableCell>
+            <StyledTableCell>{total("total")}</StyledTableCell>
+          </TableRow>
         </TableBody>
-        <TableRow sx={{ bgcolor: "action.hover" }}>
-          <StyledTableCell colSpan={4}>Итого:</StyledTableCell>
-          <StyledTableCell>{total("available")}</StyledTableCell>
-          <StyledTableCell>{total("onTheWay")}</StyledTableCell>
-          <StyledTableCell>{total("total")}</StyledTableCell>
-        </TableRow>
       </Table>
     </TableContainer>
   );
