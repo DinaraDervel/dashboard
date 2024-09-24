@@ -22,5 +22,5 @@
 
     "types": ["@types/wicg-file-system-access"]
   },
-  "include": ["src"]
+  "include": ["dashboard/src"]
 }
